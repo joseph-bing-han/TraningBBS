@@ -34,7 +34,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'subject', 'content', 'user_id', 'category_id', 'is_top', 'parent_id', 'created_at', 'updated_at', 'deleted_at'
+        'subject', 'content', 'user_id', 'category_id', 'is_top', 'parent_id', 'created_at', 'updated_at', 'deleted_at',
     ];
 
     /**
@@ -61,10 +61,11 @@ class Post extends Model
      * @var array
      */
     protected $dates = [
-        'created_at', 'updated_at', 'deleted_at'
+        'created_at', 'updated_at', 'deleted_at',
     ];
 
     protected $appends = ['comment_amount'];
+
 
     public function parent()
     {

@@ -125,7 +125,7 @@
                 </li>
               @endauth
               <li class="list-group-item">
-                <a class='btn btn-sm' href='/'>
+                <a class='btn btn-sm' href='{{route('posts.create',['category_id'=>Route::input('category_id','')])}}'>
                   <i class='far fa-edit'></i>
                   {{__('post.create')}}
                 </a>

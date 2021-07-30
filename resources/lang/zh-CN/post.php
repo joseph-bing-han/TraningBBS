@@ -11,5 +11,13 @@ return [
     'create' => '创建新主题',
     'click_category' => '点击进入此话题',
     'click_view' => '点击进入主题',
-    'updated_at' => '最后更新：'
+    'updated_at' => '最后更新：',
+    'subject' => '主题标题',
+    'subject_placeholder' => '请在此处输入标题',
+    'content' => '正文',
+    'md_placeholder' => '请在此输入正文（Markdown语法）',
+    'category_placeholder' => '请选择一个话题节点',
+    'submit' => '发布主题',
+    'comment_post' => '添加一条新回复',
+    'comment' => '回复',
 ];
