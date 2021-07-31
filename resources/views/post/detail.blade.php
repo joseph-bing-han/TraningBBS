@@ -15,11 +15,11 @@
             </span>
           </a>
           <a class='btn btn-link btn-sm text-decoration-none float-right' href='/'>
-            <img src='{{Storage::url('avatar/'.$post->creator->avatar)}}' width='64' height='64' />
+            <img src='{{Storage::url($post->creator->avatar)}}' width='64' height='64' />
           </a>
           <h4>{{$post->subject}}</h4>
           {{__('post.updated_at')}}
-          <a class='text-decoration-none' href='/'>
+          <a class='text-decoration-none' href='{{route('users.member',['id'=>$post->creator->id])}}'>
             {{$post->creator->name}}
           </a>@ {{$post->updated_at}}
         </div>
@@ -36,9 +36,9 @@
         @foreach($comments as $comment)
           <li class="list-group-item">
             <a class='btn btn-link btn-sm text-decoration-none float-left' href='/'>
-              <img src='{{Storage::url('avatar/'.$comment->creator->avatar)}}' width='48' height='48' />
+              <img src='{{Storage::url($comment->creator->avatar)}}' width='48' height='48' />
             </a>
-            <a class='text-decoration-none' href='/'>
+            <a class='text-decoration-none' href='{{route('users.member',['id'=>$comment->creator->id])}}'>
               {{$comment->creator->name}}
             </a>@ {{$comment->updated_at}}
             <span class='badge badge-pill badge-secondary float-right'>

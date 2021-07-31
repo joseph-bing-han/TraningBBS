@@ -20,4 +20,7 @@ return [
     'submit' => '发布主题',
     'comment_post' => '添加一条新回复',
     'comment' => '回复',
+    'created_posts' => '创建的主题',
+    'commented_posts' => '回复的主题',
+    'commented' => '回复了',
 ];

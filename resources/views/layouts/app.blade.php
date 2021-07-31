@@ -84,9 +84,13 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}">
+                <a class="dropdown-item" href="{{ route('users.profile') }}">
                   <i class='fa fa-user-cog'></i>
                   {{__('auth.profile')}}
+                </a>
+                <a class="dropdown-item" href="{{ route('password.request') }}">
+                  <i class='fa fa-unlock-alt'></i>
+                  {{__('user.reset_password')}}
                 </a>
                 <a
                   class="dropdown-item" href="{{ route('logout') }}"
@@ -118,8 +122,11 @@
             <ul class="list-group list-group-flush">
               @auth
                 <li class="list-group-item">
-                  <a class='btn btn-link btn-sm text-decoration-none' href='/'>
-                    <img src='{{Storage::url('avatar/'.auth()->user()->avatar)}}' width='48' height='48' />
+                  <a
+                    class='btn btn-link btn-sm text-decoration-none'
+                    href='{{route('users.member',['id'=>auth()->id()])}}'
+                  >
+                    <img src='{{Storage::url(auth()->user()->avatar)}}' width='48' height='48' />
                     {{auth()->user()->name}}
                   </a>
                 </li>
@@ -131,13 +138,13 @@
                 </a>
               </li>
               <li class="list-group-item">
-                <a class='btn btn-sm' href='/'>
+                <a class='btn btn-sm'>
                   <i class='fa fa-users'></i>
                   {{__('post.user_amount',['user_amount'=>$user_amount])}}
                 </a>
               </li>
               <li class="list-group-item">
-                <a class='btn btn-sm' href='/'>
+                <a class='btn btn-sm'>
                   <i class='fa fa-list'></i>
                   {{__('post.post_amount',['post_amount'=>$post_amount])}}
                 </a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -11,7 +12,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        File::cleanDirectory(public_path('storage/avatar/'));
-        factory(\App\Models\User::class, 119)->create();
+        if(!File::exists(storage_path('app/public/avatar/'))){
+            File::makeDirectory(storage_path('app/public/avatar/'));
+        }
+        File::cleanDirectory(storage_path('app/public/avatar/'));
+        factory(User::class, 119)->create();
     }
 }

@@ -42,7 +42,7 @@
             required
             name='category_id'
           >
-            <option value="" disabled>{{__('post.category_placeholder')}}</option>
+            <option value="" disabled selected>{{__('post.category_placeholder')}}</option>
             @foreach($categories as $category)
               <option
                 value='{{$category->id}}'

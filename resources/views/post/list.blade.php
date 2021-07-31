@@ -33,7 +33,10 @@
             </a>
             <span class='badge badge-pill badge-secondary float-right'>{{$post->comment_amount}}</span>
             <div class='small'>
-              {{$post->creator->name}} @ {{$post->updated_at}}
+              <a class='text-decoration-none' href='{{route('users.member',['id'=>$post->creator->id])}}'>
+                {{$post->creator->name}}
+              </a>
+              @ {{$post->updated_at}}
             </div>
           </div>
           <div

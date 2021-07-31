@@ -30,7 +30,7 @@ class PostController extends Controller
      * @param $category_id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create($category_id)
+    public function create($category_id = null)
     {
         return view('post.edit');
     }
