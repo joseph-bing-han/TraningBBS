@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class PostController extends Controller
     public function index(Request $request, $category_id = null)
     {
         $posts = Post::with(['category', 'creator'])->where('is_top', 1)->whereNull('parent_id')
-            ->when(!empty($category_id) && Post::whereId($category_id)->exists(), function ($query) use ($category_id) {
+            ->when(!empty($category_id) && Category::whereId($category_id)->exists(), function ($query) use ($category_id) {
                 $query->where('category_id', $category_id);
             })
             ->orderByDesc('updated_at')->paginate(config('app.page_size'));
